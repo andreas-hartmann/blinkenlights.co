@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en" data-darkreader-mode="dynamic" data-darkreader-scheme="dark"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style class="darkreader darkreader--fallback" media="screen"></style><style class="darkreader darkreader--text" media="screen"></style><style class="darkreader darkreader--invert" media="screen">.jfk-bubble.gtx-bubble, .captcheck_answer_label > input + img, span#closed_text > img[src^="https://www.gstatic.com/images/branding/googlelogo"], span[data-href^="https://www.hcaptcha.com/"] > #icon, #bit-notification-bar-iframe, ::-webkit-calendar-picker-indicator {
+    filter: invert(100%) hue-rotate(180deg) contrast(90%) !important;
+}</style><style class="darkreader darkreader--inline" media="screen">[data-darkreader-inline-bgcolor] {
+  background-color: var(--darkreader-inline-bgcolor) !important;
+}
+[data-darkreader-inline-bgimage] {
+  background-image: var(--darkreader-inline-bgimage) !important;
+}
+[data-darkreader-inline-border] {
+  border-color: var(--darkreader-inline-border) !important;
+}
+[data-darkreader-inline-border-bottom] {
+  border-bottom-color: var(--darkreader-inline-border-bottom) !important;
+}
+[data-darkreader-inline-border-left] {
+  border-left-color: var(--darkreader-inline-border-left) !important;
+}
+[data-darkreader-inline-border-right] {
+  border-right-color: var(--darkreader-inline-border-right) !important;
+}
+[data-darkreader-inline-border-top] {
+  border-top-color: var(--darkreader-inline-border-top) !important;
+}
+[data-darkreader-inline-boxshadow] {
+  box-shadow: var(--darkreader-inline-boxshadow) !important;
+}
+[data-darkreader-inline-color] {
+  color: var(--darkreader-inline-color) !important;
+}
+[data-darkreader-inline-fill] {
+  fill: var(--darkreader-inline-fill) !important;
+}
+[data-darkreader-inline-stroke] {
+  stroke: var(--darkreader-inline-stroke) !important;
+}
+[data-darkreader-inline-outline] {
+  outline-color: var(--darkreader-inline-outline) !important;
+}
+[data-darkreader-inline-stopcolor] {
+  stop-color: var(--darkreader-inline-stopcolor) !important;
+}</style><style class="darkreader darkreader--variables" media="screen">:root {
+   --darkreader-neutral-background: #131516;
+   --darkreader-neutral-text: #d8d4cf;
+   --darkreader-selection-background: #004daa;
+   --darkreader-selection-text: #e8e6e3;
+}</style><style class="darkreader darkreader--root-vars" media="screen"></style><style class="darkreader darkreader--user-agent" media="screen">html {
+    background-color: #181a1b !important;
+}
+html {
+    color-scheme: dark !important;
+}
+html, body, input, textarea, select, button {
+    background-color: #181a1b;
+}
+html, body, input, textarea, select, button {
+    border-color: #736b5e;
+    color: #e8e6e3;
+}
+a {
+    color: #3391ff;
+}
+table {
+    border-color: #545b5e;
+}
+::placeholder {
+    color: #b2aba1;
+}
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+    background-color: #404400 !important;
+    color: #e8e6e3 !important;
+}
+::-webkit-scrollbar {
+    background-color: #202324;
+    color: #aba499;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #454a4d;
+}
+::-webkit-scrollbar-thumb:hover {
+    background-color: #575e62;
+}
+::-webkit-scrollbar-thumb:active {
+    background-color: #484e51;
+}
+::-webkit-scrollbar-corner {
+    background-color: #181a1b;
+}
+::selection {
+    background-color: #004daa !important;
+    color: #e8e6e3 !important;
+}
+::-moz-selection {
+    background-color: #004daa !important;
+    color: #e8e6e3 !important;
+}</style>
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Privacy Policy</title>
+<link href="./privacy-policy_files/bootstrap.min.css" rel="stylesheet"><style class="darkreader darkreader--sync" media="screen"></style>
+<link href="./privacy-policy_files/live.min.css" rel="stylesheet"><style class="darkreader darkreader--sync" media="screen"></style>
+
+<meta name="robots" content="noindex">
+
+<script type="text/javascript" data-name="TokenSigning">(function() {
+    // Promises
+    var _eid_promises = {};
+    // Turn the incoming message from extension
+    // into pending Promise resolving
+    window.addEventListener("message", function(event) {
+        if (event.source !== window) return;
+        if (event.data.src && (event.data.src === "background.js")) {
+            console.log("Page received: ");
+            console.log(event.data);
+            // Get the promise
+            if (event.data.nonce) {
+                var p = _eid_promises[event.data.nonce];
+                // resolve
+                if (event.data.result === "ok") {
+                    if (event.data.signature !== undefined) {
+                        p.resolve({hex: event.data.signature});
+                    } else if (event.data.version !== undefined) {
+                        p.resolve(event.data.extension + "/" + event.data.version);
+                    } else if (event.data.cert !== undefined) {
+                        p.resolve({hex: event.data.cert});
+                    } else {
+                        console.log("No idea how to handle message");
+                        console.log(event.data);
+                    }
+                } else {
+                    // reject
+                    p.reject(new Error(event.data.result));
+                }
+                delete _eid_promises[event.data.nonce];
+            } else {
+                console.log("No nonce in event msg");
+            }
+        }
+    }, false);
+
+    window.TokenSigning = function() {
+        function nonce() {
+            var val = "";
+            var hex = "abcdefghijklmnopqrstuvwxyz0123456789";
+            for (var i = 0; i < 16; i++) val += hex.charAt(Math.floor(Math.random() * hex.length));
+            return val;
+        }
+
+        function messagePromise(msg) {
+            return new Promise(function(resolve, reject) {
+                // amend with necessary metadata
+                msg["nonce"] = nonce();
+                msg["src"] = "page.js";
+                // send message
+                window.postMessage(msg, "*");
+                // and store promise callbacks
+                _eid_promises[msg.nonce] = {
+                    resolve: resolve,
+                    reject: reject
+                };
+            });
+        }
+        this.getCertificate = function(options) {
+            var msg = {type: "CERT", lang: options.lang, filter: options.filter};
+            console.log("getCertificate()");
+            return messagePromise(msg);
+        };
+        this.sign = function(cert, hash, options) {
+            var msg = {type: "SIGN", cert: cert.hex, hash: hash.hex, hashtype: hash.type, lang: options.lang, info: options.info};
+            console.log("sign()");
+            return messagePromise(msg);
+        };
+        this.getVersion = function() {
+            console.log("getVersion()");
+            return messagePromise({
+                type: "VERSION"
+            });
+        };
+    };
+})();</script><meta name="darkreader" content="4783adca444f4e3f840f1cc2470fe563"><style class="darkreader darkreader--override" media="screen">.vimvixen-hint {
+    background-color: #7b5300 !important;
+    border-color: #d8b013 !important;
+    color: #f3e8c8 !important;
+}
+::placeholder {
+    opacity: 0.5 !important;
+}
+#edge-translate-panel-body,
+.MuiTypography-body1 {
+    color: var(--darkreader-neutral-text) !important;
+}
+gr-main-header {
+    background-color: #0f3a48 !important;
+}
+.tou-z65h9k,
+.tou-mignzq,
+.tou-1b6i2ox,
+.tou-lnqlqk {
+    background-color: var(--darkreader-neutral-background) !important;
+}
+.tou-75mvi {
+    background-color: #032029 !important;
+}
+.tou-ta9e87,
+.tou-1w3fhi0,
+.tou-1b8t2us,
+.tou-py7lfi,
+.tou-1lpmd9d,
+.tou-1frrtv8,
+.tou-17ezmgn {
+    background-color: #0a0a0a !important;
+}
+.tou-uknfeu {
+    background-color: #231603 !important;
+}
+.tou-6i3zyv {
+    background-color: #19576c !important;
+}
+embed[type="application/pdf"][src="about:blank"] { filter: invert(100%) contrast(90%); }</style></head>
+<body>
+<div class="wrapper">
+<div class="page">
+<div class="container">
+<div class="row">
+<div class="col-md-12">
+<h1>Privacy Policy for Blinkenlights OÜ</h1>
+<p>At blinkenlights.co, accessible from blinkenlights.co, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by blinkenlights.co and how we use it.</p>
+<p>If you have additional questions or require more information about our Privacy Policy, do not hesitate to contact us.</p>
+<p>This Privacy Policy applies only to our online activities and is valid for visitors to our website with regards to the information that they shared and/or collect in blinkenlights.co. This policy is not applicable to any information collected offline or via channels other than this website.</p>
+<h2>Consent</h2>
+<p>By using our website, you hereby consent to our Privacy Policy and agree to its terms.</p>
+<h2>Information we collect</h2>
+<p>The personal information that you are asked to provide, and the reasons why you are asked to provide it, will be made clear to you at the point we ask you to provide your personal information.</p>
+<p>If you contact us directly, we may receive additional information about you such as your name, email address, phone number, the contents of the message and/or attachments you may send us, and any other information you may choose to provide.</p>
+<p>When you register for an Account, we may ask for your contact information, including items such as name, company name, address, email address, and telephone number.</p>
+<h2>How we use your information</h2>
+<p>We use the information we collect in various ways, including to:</p>
+<ul>
+<li>Provide, operate, and maintain our website</li>
+<li>Improve, personalize, and expand our website</li>
+<li>Understand and analyze how you use our website</li>
+<li>Develop new products, services, features, and functionality</li>
+<li>Communicate with you, either directly or through one of our partners, including for customer service, to provide you with updates and other information relating to the website, and for marketing and promotional purposes</li>
+<li>Send you emails</li>
+<li>Find and prevent fraud</li>
+</ul>
+<h2>Log Files</h2>
+<p>blinkenlights.co follows a standard procedure of using log files. These files log visitors when they visit websites. All hosting companies do this and a part of hosting services' analytics. The information collected by log files include internet protocol (IP) addresses, browser type, Internet Service Provider (ISP), date and time stamp, referring/exit pages, and possibly the number of clicks. These are not linked to any information that is personally identifiable. The purpose of the information is for analyzing trends, administering the site, tracking users' movement on the website, and gathering demographic information.</p>
+<h2>Google DoubleClick DART Cookie</h2>
+<p>Google is one of a third-party vendor on our site. It also uses cookies, known as DART cookies, to serve ads to our site visitors based upon their visit to www.website.com and other sites on the internet. However, visitors may choose to decline the use of DART cookies by visiting the Google ad and content network Privacy Policy at the following URL – <a href="https://policies.google.com/technologies/ads">https://policies.google.com/technologies/ads</a></p>
+<h2>Advertising Partners Privacy Policies</h2>
+<p>You may consult this list to find the Privacy Policy for each of the advertising partners of blinkenlights.co.</p>
+<p>Third-party ad servers or ad networks uses technologies like cookies, JavaScript, or Web Beacons that are used in their respective advertisements and links that appear on blinkenlights.co, which are sent directly to users' browser. They automatically receive your IP address when this occurs. These technologies are used to measure the effectiveness of their advertising campaigns and/or to personalize the advertising content that you see on websites that you visit.</p>
+<p>Note that blinkenlights.co has no access to or control over these cookies that are used by third-party advertisers.</p>
+<h2>Third Party Privacy Policies</h2>
+<p>blinkenlights.co's Privacy Policy does not apply to other advertisers or websites. Thus, we are advising you to consult the respective Privacy Policies of these third-party ad servers for more detailed information. It may include their practices and instructions about how to opt-out of certain options. </p>
+<p>You can choose to disable cookies through your individual browser options. To know more detailed information about cookie management with specific web browsers, it can be found at the browsers' respective websites.</p>
+<h2>CCPA Privacy Rights (Do Not Sell My Personal Information)</h2>
+<p>Under the CCPA, among other rights, California consumers have the right to:</p>
+<p>Request that a business that collects a consumer's personal data disclose the categories and specific pieces of personal data that a business has collected about consumers.</p>
+<p>Request that a business delete any personal data about the consumer that a business has collected.</p>
+<p>Request that a business that sells a consumer's personal data, not sell the consumer's personal data.</p>
+<p>If you make a request, we have one month to respond to you. If you would like to exercise any of these rights, please contact us.</p>
+<h2>GDPR Data Protection Rights</h2>
+<p>We would like to make sure you are fully aware of all of your data protection rights. Every user is entitled to the following:</p>
+<p>The right to access – You have the right to request copies of your personal data. We may charge you a small fee for this service.</p>
+<p>The right to rectification – You have the right to request that we correct any information you believe is inaccurate. You also have the right to request that we complete the information you believe is incomplete.</p>
+<p>The right to erasure – You have the right to request that we erase your personal data, under certain conditions.</p>
+<p>The right to restrict processing – You have the right to request that we restrict the processing of your personal data, under certain conditions.</p>
+<p>The right to object to processing – You have the right to object to our processing of your personal data, under certain conditions.</p>
+<p>The right to data portability – You have the right to request that we transfer the data that we have collected to another organization, or directly to you, under certain conditions.</p>
+<p>If you make a request, we have one month to respond to you. If you would like to exercise any of these rights, please contact us.</p>
+<h2>Children's Information</h2>
+<p>Another part of our priority is adding protection for children while using the internet. We encourage parents and guardians to observe, participate in, and/or monitor and guide their online activity.</p>
+<p>blinkenlights.co does not knowingly collect any Personal Identifiable Information from children under the age of 13. If you think that your child provided this kind of information on our website, we strongly encourage you to contact us immediately and we will do our best efforts to promptly remove such information from our records.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</body></html>
