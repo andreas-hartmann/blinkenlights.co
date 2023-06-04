@@ -5,6 +5,11 @@
   font-style: normal;
 }
 
+body,
+html {
+  overflow: hidden;
+}
+
 body {
   margin: 10% auto;
   background: #2b2d42;
