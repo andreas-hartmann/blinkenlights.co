@@ -12,42 +12,17 @@
     <link rel="stylesheet" href="styles.css" />
     <style>
       body {
-        visibility: hidden;
-      }
-      .dark-mode {
-        background-color: #1e1e1e;
-        color: #f0f0f0;
-      }
-      .light-mode {
         background-color: #f0f0f0;
         color: #333;
+        margin: 0;
+        padding: 0;
       }
       #subtitle {
-        color: inherit;
-      }
-      .dark-mode .service-item {
-        background-color: #2e2e2e;
-        border-color: #444;
-        color: #f0f0f0;
-      }
-      .light-mode .service-item {
-        background-color: #fff;
-        border-color: #ddd;
         color: #333;
       }
     </style>
   </head>
   <body>
-    <div id="dark-mode-toggle">
-      <button
-        id="darkModeButton"
-        aria-label="Toggle Dark Mode"
-        onclick="toggleDarkMode()"
-      >
-        <span id="darkModeIcon" class="icon">🌙</span>
-      </button>
-    </div>
-
     <header>
       <h1>Privacy Policy</h1>
       <p id="subtitle">For Blinkenlights OÜ</p>
@@ -113,43 +88,7 @@
       <p><a href="index.html">Back to Home</a></p>
     </footer>
 
-    <script defer>
-      document.addEventListener("DOMContentLoaded", function () {
-        const darkModePreference = localStorage.getItem("darkMode");
-        const prefersDarkMode =
-          window.matchMedia &&
-          window.matchMedia("(prefers-color-scheme: dark)").matches;
-        const body = document.body;
-        const icon = document.getElementById("darkModeIcon");
-
-        if (
-          darkModePreference === "enabled" ||
-          (!darkModePreference && prefersDarkMode)
-        ) {
-          body.classList.add("dark-mode");
-          icon.textContent = "☀️";
-        } else {
-          body.classList.add("light-mode");
-          icon.textContent = "🌙";
-        }
-        document.body.style.visibility = "visible";
-      });
-
-      function toggleDarkMode() {
-        const body = document.body;
-        const icon = document.getElementById("darkModeIcon");
-        body.classList.toggle("dark-mode");
-        body.classList.toggle("light-mode");
-
-        if (body.classList.contains("dark-mode")) {
-          icon.textContent = "☀️";
-          localStorage.setItem("darkMode", "enabled");
-        } else {
-          icon.textContent = "🌙";
-          localStorage.setItem("darkMode", "disabled");
-        }
-      }
-
+    <script>
       function showEmail() {
         alert("Contact me at: andreas@blinkenlights.co");
       }
