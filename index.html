@@ -1,20 +1,122 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
   <head>
-    <title>blinkenlights</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blinkenlights OÜ - Minimalist Software Engineering</title>
+    <meta
+      name="description"
+      content="Blinkenlights OÜ offers minimalist software engineering solutions that are clean, efficient, and tailored to your needs. We help businesses reduce costs, adopt new technologies, and maintain flexibility."
+    />
+    <meta
+      name="keywords"
+      content="software engineering, custom software development, cloud solutions, microservices, software architecture, DevOps, AI solutions, Blinkenlights OÜ"
+    />
+    <meta name="robots" content="index, follow" />
+    <link rel="stylesheet" href="styles.css" />
   </head>
-
   <body>
-    <h1>Blinkenlights</h1>
-    <h2>Your All-In-One IT Solution Provider</h2>
-    <a
-      class="glitch"
-      data-text="Contact Now"
-      href="mailto:andreas@blinkenlights.co"
-    >
-      Contact Now
-    </a>
+    <div id="dark-mode-toggle">
+      <button id="darkModeButton" onclick="toggleDarkMode()">
+        <span id="darkModeIcon" class="icon">🌙</span>
+      </button>
+    </div>
+
+    <header>
+      <h1>Blinkenlights OÜ</h1>
+      <p>Minimalism in Software Engineering</p>
+    </header>
+
+    <main>
+      <section id="about">
+        <p>
+          We build software that works — clean, efficient, and tailored to your
+          needs. At Blinkenlights OÜ, we keep it simple, delivering real
+          solutions quickly, reducing costs, and helping you adopt new
+          technologies without the hassle.
+        </p>
+      </section>
+
+      <section id="services" class="grid">
+        <div class="service-item">
+          <h3>Custom Software</h3>
+          <p>
+            Efficient, user-friendly software designed to fit your business
+            perfectly.
+          </p>
+        </div>
+        <div class="service-item">
+          <h3>Cloud Solutions</h3>
+          <p>
+            Seamless cloud integration to enhance flexibility and lower costs.
+          </p>
+        </div>
+        <div class="service-item">
+          <h3>Microservices</h3>
+          <p>Scalable systems that grow with you, without the complexity.</p>
+        </div>
+        <div class="service-item">
+          <h3>Architecture Consulting</h3>
+          <p>Practical advice to streamline your software architecture.</p>
+        </div>
+        <div class="service-item">
+          <h3>DevOps & Automation</h3>
+          <p>
+            Simplify your processes with automation that speeds up development.
+          </p>
+        </div>
+        <div class="service-item">
+          <h3>AI Solutions</h3>
+          <p>Real-world AI models that integrate easily and drive results.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p><a href="#" onclick="showEmail()">Contact Us</a></p>
+      <p><a href="privacy-policy.html">Privacy Policy</a></p>
+    </footer>
+
+    <script>
+      // Dark Mode Toggle
+      function toggleDarkMode() {
+        const body = document.body;
+        const icon = document.getElementById("darkModeIcon");
+        body.classList.toggle("dark-mode");
+
+        if (body.classList.contains("dark-mode")) {
+          icon.textContent = "☀️"; // Sun icon for dark mode
+          localStorage.setItem("darkMode", "enabled");
+        } else {
+          icon.textContent = "🌙"; // Moon icon for light mode
+          localStorage.setItem("darkMode", "disabled");
+        }
+      }
+
+      // Initialize Dark Mode based on saved preference or OS setting
+      (function () {
+        const darkModePreference = localStorage.getItem("darkMode");
+        const prefersDarkMode =
+          window.matchMedia &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const body = document.body;
+        const icon = document.getElementById("darkModeIcon");
+
+        if (
+          darkModePreference === "enabled" ||
+          (!darkModePreference && prefersDarkMode)
+        ) {
+          body.classList.add("dark-mode");
+          icon.textContent = "☀️"; // Sun icon
+        } else {
+          icon.textContent = "🌙"; // Moon icon
+        }
+      })();
+
+      // Show email on click
+      function showEmail() {
+        alert("Contact me at: andreas@blinkenlights.co");
+      }
+    </script>
   </body>
 </html>
