@@ -14,6 +14,17 @@
       body {
         visibility: hidden;
       }
+      .dark-mode {
+        background-color: #1e1e1e;
+        color: #f0f0f0;
+      }
+      .light-mode {
+        background-color: #f0f0f0;
+        color: #333;
+      }
+      #subtitle {
+        color: inherit;
+      }
       @media (prefers-color-scheme: dark) {
         body {
           background-color: #1e1e1e;
@@ -118,7 +129,6 @@
           window.matchMedia("(prefers-color-scheme: dark)").matches;
         const body = document.body;
         const icon = document.getElementById("darkModeIcon");
-        const subtitle = document.getElementById("subtitle");
 
         if (
           darkModePreference === "enabled" ||
@@ -127,6 +137,7 @@
           body.classList.add("dark-mode");
           icon.textContent = "☀️";
         } else {
+          body.classList.add("light-mode");
           icon.textContent = "🌙";
         }
         document.body.style.visibility = "visible";
@@ -135,8 +146,8 @@
       function toggleDarkMode() {
         const body = document.body;
         const icon = document.getElementById("darkModeIcon");
-        const subtitle = document.getElementById("subtitle");
         body.classList.toggle("dark-mode");
+        body.classList.toggle("light-mode");
 
         if (body.classList.contains("dark-mode")) {
           icon.textContent = "☀️";

@@ -18,12 +18,31 @@
       body {
         visibility: hidden;
       }
+      .dark-mode {
+        background-color: #1e1e1e;
+        color: #f0f0f0;
+      }
+      .light-mode {
+        background-color: #f0f0f0;
+        color: #333;
+      }
+      .service-item {
+        background-color: inherit;
+        border: 1px solid #ddd;
+        padding: 10px;
+        margin: 10px;
+      }
       @media (prefers-color-scheme: dark) {
         body {
           background-color: #1e1e1e;
           color: #f0f0f0;
         }
         #subtitle {
+          color: #f0f0f0;
+        }
+        .service-item {
+          background-color: #2e2e2e;
+          border-color: #444;
           color: #f0f0f0;
         }
       }
@@ -33,6 +52,11 @@
           color: #333;
         }
         #subtitle {
+          color: #333;
+        }
+        .service-item {
+          background-color: #fff;
+          border-color: #ddd;
           color: #333;
         }
       }
@@ -112,7 +136,6 @@
           window.matchMedia("(prefers-color-scheme: dark)").matches;
         const body = document.body;
         const icon = document.getElementById("darkModeIcon");
-        const subtitle = document.getElementById("subtitle");
 
         if (
           darkModePreference === "enabled" ||
@@ -121,6 +144,7 @@
           body.classList.add("dark-mode");
           icon.textContent = "☀️";
         } else {
+          body.classList.add("light-mode");
           icon.textContent = "🌙";
         }
         document.body.style.visibility = "visible";
@@ -129,8 +153,8 @@
       function toggleDarkMode() {
         const body = document.body;
         const icon = document.getElementById("darkModeIcon");
-        const subtitle = document.getElementById("subtitle");
         body.classList.toggle("dark-mode");
+        body.classList.toggle("light-mode");
 
         if (body.classList.contains("dark-mode")) {
           icon.textContent = "☀️";
