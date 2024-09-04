@@ -30,7 +30,7 @@
 
     <header>
       <h1>Privacy Policy</h1>
-      <p>For Blinkenlights OÜ</p>
+      <p id="subtitle">For Blinkenlights OÜ</p>
     </header>
 
     <main>
@@ -94,13 +94,14 @@
     </footer>
 
     <script defer>
-      (function () {
+      document.addEventListener("DOMContentLoaded", function () {
         const darkModePreference = localStorage.getItem("darkMode");
         const prefersDarkMode =
           window.matchMedia &&
           window.matchMedia("(prefers-color-scheme: dark)").matches;
         const body = document.body;
         const icon = document.getElementById("darkModeIcon");
+        const subtitle = document.getElementById("subtitle");
 
         if (
           darkModePreference === "enabled" ||
@@ -108,23 +109,30 @@
         ) {
           body.classList.add("dark-mode");
           icon.textContent = "☀️";
-          document.body.style.visibility = "visible";
+          subtitle.style.color = "#f0f0f0";
         } else {
           icon.textContent = "🌙";
-          document.body.style.visibility = "visible";
+          body.style.backgroundColor = "#f0f0f0";
+          subtitle.style.color = "#333";
         }
-      })();
+        document.body.style.visibility = "visible";
+      });
 
       function toggleDarkMode() {
         const body = document.body;
         const icon = document.getElementById("darkModeIcon");
+        const subtitle = document.getElementById("subtitle");
         body.classList.toggle("dark-mode");
 
         if (body.classList.contains("dark-mode")) {
           icon.textContent = "☀️";
+          subtitle.style.color = "#f0f0f0";
+          body.style.backgroundColor = "#1e1e1e";
           localStorage.setItem("darkMode", "enabled");
         } else {
           icon.textContent = "🌙";
+          subtitle.style.color = "#333";
+          body.style.backgroundColor = "#f0f0f0";
           localStorage.setItem("darkMode", "disabled");
         }
       }
