@@ -17,7 +17,24 @@
     <style>
       body {
         visibility: hidden;
-        background-color: #1e1e1e;
+      }
+      @media (prefers-color-scheme: dark) {
+        body {
+          background-color: #1e1e1e;
+          color: #f0f0f0;
+        }
+        #subtitle {
+          color: #f0f0f0;
+        }
+      }
+      @media (prefers-color-scheme: light) {
+        body {
+          background-color: #f0f0f0;
+          color: #333;
+        }
+        #subtitle {
+          color: #333;
+        }
       }
     </style>
   </head>
@@ -103,11 +120,8 @@
         ) {
           body.classList.add("dark-mode");
           icon.textContent = "☀️";
-          subtitle.style.color = "#f0f0f0";
         } else {
           icon.textContent = "🌙";
-          body.style.backgroundColor = "#f0f0f0";
-          subtitle.style.color = "#333";
         }
         document.body.style.visibility = "visible";
       });
@@ -120,13 +134,9 @@
 
         if (body.classList.contains("dark-mode")) {
           icon.textContent = "☀️";
-          subtitle.style.color = "#f0f0f0";
-          body.style.backgroundColor = "#1e1e1e";
           localStorage.setItem("darkMode", "enabled");
         } else {
           icon.textContent = "🌙";
-          subtitle.style.color = "#333";
-          body.style.backgroundColor = "#f0f0f0";
           localStorage.setItem("darkMode", "disabled");
         }
       }
