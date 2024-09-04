@@ -14,10 +14,20 @@
     />
     <meta name="robots" content="index, follow" />
     <link rel="stylesheet" href="styles.css" />
+    <style>
+      body {
+        visibility: hidden;
+        background-color: #1e1e1e;
+      }
+    </style>
   </head>
   <body>
     <div id="dark-mode-toggle">
-      <button id="darkModeButton" onclick="toggleDarkMode()">
+      <button
+        id="darkModeButton"
+        aria-label="Toggle Dark Mode"
+        onclick="toggleDarkMode()"
+      >
         <span id="darkModeIcon" class="icon">🌙</span>
       </button>
     </div>
@@ -77,23 +87,7 @@
       <p><a href="privacy-policy.html">Privacy Policy</a></p>
     </footer>
 
-    <script>
-      // Dark Mode Toggle
-      function toggleDarkMode() {
-        const body = document.body;
-        const icon = document.getElementById("darkModeIcon");
-        body.classList.toggle("dark-mode");
-
-        if (body.classList.contains("dark-mode")) {
-          icon.textContent = "☀️"; // Sun icon for dark mode
-          localStorage.setItem("darkMode", "enabled");
-        } else {
-          icon.textContent = "🌙"; // Moon icon for light mode
-          localStorage.setItem("darkMode", "disabled");
-        }
-      }
-
-      // Initialize Dark Mode based on saved preference or OS setting
+    <script defer>
       (function () {
         const darkModePreference = localStorage.getItem("darkMode");
         const prefersDarkMode =
@@ -107,13 +101,28 @@
           (!darkModePreference && prefersDarkMode)
         ) {
           body.classList.add("dark-mode");
-          icon.textContent = "☀️"; // Sun icon
+          icon.textContent = "☀️";
+          document.body.style.visibility = "visible";
         } else {
-          icon.textContent = "🌙"; // Moon icon
+          icon.textContent = "🌙";
+          document.body.style.visibility = "visible";
         }
       })();
 
-      // Show email on click
+      function toggleDarkMode() {
+        const body = document.body;
+        const icon = document.getElementById("darkModeIcon");
+        body.classList.toggle("dark-mode");
+
+        if (body.classList.contains("dark-mode")) {
+          icon.textContent = "☀️";
+          localStorage.setItem("darkMode", "enabled");
+        } else {
+          icon.textContent = "🌙";
+          localStorage.setItem("darkMode", "disabled");
+        }
+      }
+
       function showEmail() {
         alert("Contact me at: andreas@blinkenlights.co");
       }
